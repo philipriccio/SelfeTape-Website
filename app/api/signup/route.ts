@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Email required" }, { status: 400 });
     }
 
-    const res = await fetch("https://crm.companytheatre.ca/api/contacts", {
+    const res = await fetch("https://crm.selfetape.com/api/contacts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
         email,
         firstName: firstName || "",
         lastName: lastName || "",
-        tags: ["SelfeTape Waitlist"],
+        tags: ["Waitlist"],
       }),
     });
 
