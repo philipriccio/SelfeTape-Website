@@ -17,15 +17,75 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug);
   if (!post) return { title: "Not Found" };
   return {
-    title: `${post.title} — Self-e-Tape`,
+    title: post.title,
     description: post.description,
+    alternates: {
+      canonical: `/blog/${slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.description,
       type: "article",
       authors: [post.author],
+      publishedTime: post.date,
+      url: `https://selfetape.com/blog/${slug}`,
+    },
+    twitter: {
+      card: "summary",
+      title: post.title,
+      description: post.description,
     },
   };
+}
+
+function BlogPostSchema({ post, slug }: { post: { title: string; description: string; date: string; author: string; contentHtml?: string }; slug: string }) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    url: `https://selfetape.com/blog/${slug}`,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": "Person",
+      name: post.author,
+      url: "https://selfetape.com",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Self-e-Tape",
+      url: "https://selfetape.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://selfetape.com/favicon-192.png",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://selfetape.com/blog/${slug}`,
+    },
+    inLanguage: "en",
+    articleSection: "Acting",
+    keywords: ["self tape", "actors", "audition", "self-tape tips"],
+  };
+
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://selfetape.com" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://selfetape.com/blog" },
+      { "@type": "ListItem", position: 3, name: post.title, item: `https://selfetape.com/blog/${slug}` },
+    ],
+  };
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+    </>
+  );
 }
 
 export default async function BlogPostPage({
@@ -39,6 +99,8 @@ export default async function BlogPostPage({
 
   return (
     <>
+      <BlogPostSchema post={post} slug={slug} />
+
       <nav>
         <div className="nav-inner">
           <Link href="/" className="nav-wordmark">
