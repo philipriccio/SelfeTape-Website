@@ -1,0 +1,18 @@
+import type { MetadataRoute } from "next";
+import { getAllPosts } from "@/lib/blog";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const posts = getAllPosts();
+  const blogEntries = posts.map((post) => ({
+    url: `https://selfetape.com/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+  }));
+
+  return [
+    { url: "https://selfetape.com", lastModified: new Date() },
+    { url: "https://selfetape.com/blog", lastModified: new Date() },
+    { url: "https://selfetape.com/privacy", lastModified: new Date() },
+    { url: "https://selfetape.com/terms", lastModified: new Date() },
+    ...blogEntries,
+  ];
+}
