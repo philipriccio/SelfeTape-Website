@@ -20,6 +20,11 @@ export default function Home() {
     <>
       <ScrollReveal />
 
+      <div className="coming-soon-banner">
+        <span>🎬 Coming Soon to iOS</span>
+        <a href="#join" className="banner-cta">Get Early Access</a>
+      </div>
+
       <nav>
         <div className="nav-inner">
           <Link href="/" className="nav-wordmark">

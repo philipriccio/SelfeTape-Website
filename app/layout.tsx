@@ -19,6 +19,13 @@ export const metadata: Metadata = {
   title: "Self-e-Tape — The self-tape app built by an actor, for actors.",
   description:
     "Import your sides, choose a reader, record your tape, and submit — all without leaving the app.",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "Self-e-Tape — Your whole self-tape workflow. One app.",
     description:

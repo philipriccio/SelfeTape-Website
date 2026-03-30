@@ -43,8 +43,34 @@ body {
   overflow-x: hidden;
 }
 
+/* Coming Soon Banner */
+.coming-soon-banner {
+  position: fixed; top: 0; left: 0; width: 100%;
+  background: var(--accent);
+  color: white;
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  padding: 10px 24px;
+  font-size: 14px; font-weight: 600;
+  letter-spacing: 0.02em;
+  z-index: 101;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+}
+.coming-soon-banner span { white-space: nowrap; }
+.banner-cta {
+  background: white; color: var(--accent);
+  padding: 6px 18px; border-radius: 100px;
+  font-size: 13px; font-weight: 700;
+  text-decoration: none; transition: all 0.3s var(--ease);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  white-space: nowrap;
+}
+.banner-cta:hover {
+  background: #f5f5f5; transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
 nav {
-  position: fixed; top: 0; width: 100%;
+  position: fixed; top: 40px; width: 100%;
   background: rgba(253,250,246,0.88);
   backdrop-filter: blur(24px) saturate(1.4);
   -webkit-backdrop-filter: blur(24px) saturate(1.4);
@@ -100,7 +126,7 @@ nav {
 }
 
 .hero {
-  padding: 160px 24px 100px;
+  padding: 200px 24px 100px;
   text-align: center;
   position: relative;
   overflow: hidden;
