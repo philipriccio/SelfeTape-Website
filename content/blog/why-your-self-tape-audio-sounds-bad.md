@@ -63,6 +63,8 @@ When I watch my own tapes back, here's my checklist:
 
 If all four of those are good, the audio is good enough. Don't overthink it beyond that.
 
+If you want a full practical setup guide beyond the audio piece, read [Self-Tape Tips Every Actor Should Know — Lighting, Framing, and Audio](/blog/self-tape-tips-lighting-framing-audio).
+
 ## The tools matter, but the performance matters more
 
 I want to be clear about something: good audio won't save a bad performance. But bad audio can absolutely undermine a good one.

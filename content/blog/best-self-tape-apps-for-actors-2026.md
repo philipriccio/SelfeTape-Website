@@ -107,6 +107,8 @@ Self-e-Tape handles the full pipeline: import your sides, assign a reader, recor
 
 **Where we need to improve:** We don't have a teleprompter yet. We don't have cue-based line advancement (auto-detecting when you finish your line). We're iOS only. And we're still in beta — there are rough edges to smooth out.
 
+If you want to make sure your setup looks and sounds right once you've picked a tool, read [Self-Tape Tips Every Actor Should Know — Lighting, Framing, and Audio](/blog/self-tape-tips-lighting-framing-audio).
+
 ## So which one should you use?
 
 Honestly? It depends on what you need most.

@@ -34,7 +34,7 @@ This is the biggest game-changer. There are apps now that will read the other ch
 
 The key things to look for: Does the reader sound natural? Does it wait for you to finish before responding? Can you adjust the timing? And most importantly — does the final tape sound like you had someone there?
 
-I built Self-e-Tape because I couldn't find an app that did all of this well AND handled the edit, the slate, the title card, and the export. Every app I tried got me 60% of the way there, and then I was back in iMovie stitching things together at midnight.
+If you're comparing options, I wrote an honest breakdown of [the best self-tape apps for actors in 2026](/blog/best-self-tape-apps-for-actors-2026). I built Self-e-Tape because I couldn't find an app that did all of this well **and** handled the edit, the slate, the title card, and the export. Every app I tried got me 60% of the way there, and then I was back in iMovie stitching things together at midnight.
 
 **2. Have your taping spot ready to go.**
 

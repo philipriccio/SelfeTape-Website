@@ -68,6 +68,14 @@ export const metadata: Metadata = {
     url: "https://selfetape.com",
     siteName: "Self-e-Tape",
     locale: "en_US",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Self-e-Tape — Your whole self-tape workflow. One app.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -75,6 +83,7 @@ export const metadata: Metadata = {
     description:
       "The self-tape app built by an actor, for actors. Import sides, choose a reader, record, edit, submit.",
     creator: "@philipriccio",
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,

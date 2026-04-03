@@ -29,11 +29,20 @@ export async function generateMetadata({
       authors: [post.author],
       publishedTime: post.date,
       url: `https://selfetape.com/blog/${slug}`,
+      images: [
+        {
+          url: `/blog/${slug}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: `${post.title} — Self-e-Tape Blog`,
+        },
+      ],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: post.title,
       description: post.description,
+      images: [`/blog/${slug}/opengraph-image`],
     },
   };
 }
