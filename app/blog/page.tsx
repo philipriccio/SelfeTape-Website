@@ -5,6 +5,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Blog — Self-e-Tape",
   description: "Tips, insights, and honest talk about self-taping from a working actor.",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 export default function BlogPage() {
