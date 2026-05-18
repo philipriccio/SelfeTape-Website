@@ -2,11 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   try {
-    const { firstName, lastName, email } = await request.json();
+    const { firstName, lastName, email, source, offer } = await request.json();
 
     if (!email) {
       return NextResponse.json({ error: "Email required" }, { status: 400 });
     }
+
+    const sourceTag = typeof source === "string" && source.trim()
+      ? `Signup Source: ${source.replace(/^\//, "") || "homepage"}`
+      : "Signup Source: unknown";
 
     const res = await fetch("https://crm.selfetape.com/api/contacts", {
       method: "POST",
@@ -18,7 +22,13 @@ export async function POST(request: NextRequest) {
         email,
         firstName: firstName || "",
         lastName: lastName || "",
-        tags: ["Waitlist"],
+        tags: [
+          "Waitlist",
+          "Self-Tape Emergency Kit",
+          "Website Signup",
+          sourceTag,
+          typeof offer === "string" ? `Offer: ${offer}` : "Offer: Self-Tape Emergency Kit",
+        ],
       }),
     });
 

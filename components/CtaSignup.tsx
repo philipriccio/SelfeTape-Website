@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-export function CtaSignup() {
+export function CtaSignup({ label = "Join the actor beta list" }: { label?: string }) {
   const [open, setOpen] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -25,7 +25,13 @@ export function CtaSignup() {
       const res = await fetch("/api/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ firstName, lastName, email }),
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          source: typeof window !== "undefined" ? window.location.pathname : "cta",
+          offer: "Self-Tape Emergency Kit",
+        }),
       });
       if (res.ok) {
         setStatus("success");
@@ -49,17 +55,17 @@ export function CtaSignup() {
   return (
     <>
       <button className="cta-trigger" onClick={() => setOpen(true)}>
-        Join the Waitlist
+        {label}
       </button>
 
       {open && (
         <div className="signup-overlay" onClick={() => setOpen(false)}>
           <div className="signup-modal" onClick={(e) => e.stopPropagation()}>
             <button className="signup-close" onClick={() => setOpen(false)}>×</button>
-            <h3>Join the Waitlist</h3>
-            <p>Be the first to know when Self-e-Tape launches.</p>
+            <h3>Get early access</h3>
+            <p>Join the actor beta list and get the Self-Tape Emergency Kit: a last-minute audition checklist for lighting, sound, reader setup, slate, title card, and export.</p>
             {status === "success" ? (
-              <div className="signup-success">✓ You&apos;re on the list!</div>
+              <div className="signup-success">✓ You&apos;re on the beta list. The checklist is coming with launch updates.</div>
             ) : (
               <form onSubmit={handleSubmit}>
                 <div className="signup-row">
@@ -86,7 +92,7 @@ export function CtaSignup() {
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 <button type="submit" disabled={status === "loading"}>
-                  {status === "loading" ? "Joining..." : status === "error" ? "Something went wrong — try again" : "Join Waitlist"}
+                  {status === "loading" ? "Joining..." : status === "error" ? "Something went wrong — try again" : "Send me the kit + early access"}
                 </button>
               </form>
             )}

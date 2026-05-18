@@ -37,7 +37,7 @@ export default function Home() {
             <a href="#residuals" className="nav-link">Residuals</a>
             <a href="#pricing" className="nav-link">Pricing</a>
             <Link href="/blog" className="nav-link">Blog</Link>
-            <a href="#join" className="nav-cta">Join Waitlist</a>
+            <a href="#join" className="nav-cta">Get the Free Kit</a>
           </div>
           <MobileNav />
         </div>
@@ -45,8 +45,9 @@ export default function Home() {
 
       <section className="hero">
         <div className="hero-inner">
-          <h1>Your whole self-tape workflow.<br /><em>One app.</em></h1>
-          <p className="hero-sub">Import your sides, choose a reader, record your tape, edit, and submit — all without leaving the app. No studio. No favours. Just you and your craft.</p>
+          <h1>The self-tape app for actors who need to record auditions without a reader.</h1>
+          <p className="hero-sub">Import PDF sides, choose AI reader voices, rehearse, record, clean up audio, add your slate and title card, and export a casting-ready tape from your iPhone.</p>
+          <p className="hero-offer">Join the actor beta list and get the Self-Tape Emergency Kit before launch.</p>
           <SignupForm />
 
           <div className="hero-visual fade-in">
@@ -262,9 +263,9 @@ export default function Home() {
 
       <section className="cta-section fade-in" id="join">
         <div className="cta-inner">
-          <h2>Be the first to know.</h2>
-          <p>Self-e-Tape is coming soon. Join the waitlist and we&apos;ll let you know the moment it&apos;s ready.</p>
-          <CtaSignup />
+          <h2>Get early access + the Self-Tape Emergency Kit.</h2>
+          <p>Join the actor beta list and get a practical last-minute audition checklist for lighting, framing, sound, reader setup, slate, title card, and export.</p>
+          <CtaSignup label="Send me the kit + early access" />
         </div>
       </section>
 
@@ -276,6 +277,13 @@ export default function Home() {
           <a href="https://tiktok.com/@selfetape" target="_blank" rel="noreferrer">TikTok</a>
           <a href="https://x.com/selfetape" target="_blank" rel="noreferrer">X</a>
           <a href="https://youtube.com/@selfetape" target="_blank" rel="noreferrer">YouTube</a>
+        </div>
+        <div className="footer-seo-links">
+          <Link href="/self-tape-app">Self-Tape App</Link>
+          <Link href="/self-tape-without-a-reader">No Reader Guide</Link>
+          <Link href="/self-tape-reader-app">Reader App</Link>
+          <Link href="/best-self-tape-app">Best Self-Tape App</Link>
+          <Link href="/last-minute-self-tape-checklist">Free Checklist</Link>
         </div>
         <div className="footer-links">
           <Link href="/privacy">Privacy</Link>

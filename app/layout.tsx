@@ -17,11 +17,11 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Self-e-Tape — The self-tape app built by an actor, for actors.",
+    default: "Self-e-Tape — Self-Tape App for Actors Without a Reader",
     template: "%s | Self-e-Tape",
   },
   description:
-    "The all-in-one self-tape app for actors. Import your sides, choose a reader voice, rehearse, record, edit your audio, and submit — all from your phone. Built by a working actor who got tired of the midnight scramble.",
+    "The self-tape app for actors who need to record auditions without a reader. Import PDF sides, choose AI reader voices, rehearse, record, clean up audio, add slate/title card, and export from your iPhone.",
   keywords: [
     "self tape app",
     "self-tape app",
@@ -61,9 +61,9 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Self-e-Tape — Your whole self-tape workflow. One app.",
+    title: "Self-e-Tape — Self-Tape App for Actors Without a Reader",
     description:
-      "The self-tape app built by an actor, for actors. Import sides, choose a reader, record, edit, submit. No studio. No favours.",
+      "Import PDF sides, choose AI reader voices, rehearse, record, clean up audio, add slate/title card, and export a casting-ready tape from your iPhone.",
     type: "website",
     url: "https://selfetape.com",
     siteName: "Self-e-Tape",
@@ -79,9 +79,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Self-e-Tape — Your whole self-tape workflow. One app.",
+    title: "Self-e-Tape — Self-Tape App for Actors Without a Reader",
     description:
-      "The self-tape app built by an actor, for actors. Import sides, choose a reader, record, edit, submit.",
+      "The self-tape app for actors who need reader voices, recording, audio cleanup, slate/title card, and export in one iPhone workflow.",
     creator: "@philipriccio",
     images: ["/opengraph-image"],
   },
@@ -109,7 +109,7 @@ const jsonLd = {
   applicationCategory: "MultimediaApplication",
   operatingSystem: "iOS",
   description:
-    "The all-in-one self-tape app for actors. Import your sides, choose a reader voice, rehearse, record, edit your audio, and submit — all from your phone.",
+    "The self-tape app for actors who need to record auditions without a reader. Import PDF sides, choose reader voices, rehearse, record, clean up audio, add slate/title card, and export from your iPhone.",
   url: "https://selfetape.com",
   author: {
     "@type": "Person",
@@ -146,7 +146,7 @@ const organizationLd = {
     name: "Philip Riccio",
   },
   description:
-    "Self-e-Tape is the self-tape app built by a working actor for actors. Your whole audition workflow in one app.",
+    "Self-e-Tape is the self-tape app for actors who need to record auditions without a reader and finish the full audition workflow in one app.",
 };
 
 const breadcrumbLd = {

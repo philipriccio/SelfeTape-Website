@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
+import { seoPages } from "@/lib/seo-pages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
@@ -8,6 +9,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(post.date),
     changeFrequency: "monthly" as const,
     priority: 0.7,
+  }));
+
+  const seoEntries = seoPages.map((page) => ({
+    url: `https://selfetape.com/${page.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: page.slug === "last-minute-self-tape-checklist" ? 0.85 : 0.9,
   }));
 
   return [
@@ -35,6 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.3,
     },
+    ...seoEntries,
     ...blogEntries,
   ];
 }
