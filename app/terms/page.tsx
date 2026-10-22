@@ -1,7 +1,7 @@
 import Link from "next/link";
 import fs from "fs";
 import path from "path";
-import matter from "gray-matter";
+import matter from "@/lib/frontmatter";
 import { remark } from "remark";
 import html from "remark-html";
 

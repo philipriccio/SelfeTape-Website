@@ -8,39 +8,29 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Email required" }, { status: 400 });
     }
 
-    const sourceTag = typeof source === "string" && source.trim()
-      ? `Signup Source: ${source.replace(/^\//, "") || "homepage"}`
-      : "Signup Source: unknown";
+    const token = process.env.SELFETAPE_SIGNUP_TOKEN;
+    if (!token || token.length < 32) {
+      return NextResponse.json({ error: "Signup temporarily unavailable" }, { status: 503 });
+    }
 
-    const res = await fetch("https://crm.selfetape.com/api/contacts", {
+    const res = await fetch("https://crm.selfetape.com/api/website-signups", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Basic UGhpbGlwOlJpY2Npbw==",
+        Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({
-        email,
-        firstName: firstName || "",
-        lastName: lastName || "",
-        tags: [
-          "Waitlist",
-          "Self-Tape Emergency Kit",
-          "Website Signup",
-          sourceTag,
-          typeof offer === "string" ? `Offer: ${offer}` : "Offer: Self-Tape Emergency Kit",
-        ],
-      }),
+      body: JSON.stringify({ email, firstName, lastName, source, offer }),
+      signal: AbortSignal.timeout(10000),
     });
 
     if (!res.ok) {
-      const text = await res.text();
-      console.error("CRM error:", res.status, text);
+      console.error("CRM signup rejected:", res.status);
       return NextResponse.json({ error: "Signup failed" }, { status: 500 });
     }
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Signup error:", error);
+    console.error("Signup request failed");
     return NextResponse.json({ error: "Internal error" }, { status: 500 });
   }
 }
